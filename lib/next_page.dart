@@ -2,6 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NextPage extends StatelessWidget {
+
+  //変数の初期化 前ページの引数を格納
+  NextPage(this.name);
+  final String name;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,28 +19,25 @@ class NextPage extends StatelessWidget {
       //option + EnterでCenterを付けたり、削除できる
       body: Container(
         color: Colors.red,
-        child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            //前ページのtextが渡されている
+            Text(name),
+            Center(
 
-          // child: Column(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: <Widget>[
-          //     Text(
-          //       'ボタンを押してみよう！',
-          //     ),
-          //     Text('簡単！！'),
-          //
-          //   ],
-          // ),
-          child: RaisedButton(
-            child: Text('戻る'),
-            onPressed: (){
-              //クリック時の処理をかく
-              //画面遷移 公式document参照
-              Navigator.pop(context);
+              child: RaisedButton(
+                child: Text('戻る'),
+                onPressed: (){
+                  //クリック時の処理をかく
+                  //画面遷移 公式document参照 戻るときに引数を持たすことができる
+                  Navigator.pop(context, 'おしんこバック');
 
 
-            },
-          ),
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

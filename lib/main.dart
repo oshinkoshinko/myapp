@@ -15,16 +15,17 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      //最初のページは/ですよ
-      initialRoute: '/',
-      routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        // 最初のページ"/"はMyHomePageですよ
-        '/': (context) => MyHomePage(),
-        // When navigating to the "/second" route, build the SecondScreen widget.
-        //2番目のページはNextPageですよ
-        '/second': (context) => NextPage(),
-      },
+      home: MyHomePage(title: "Flutter Demo"),
+      // //最初のページは/ですよ
+      // initialRoute: '/',
+      // routes: {
+      //   // When navigating to the "/" route, build the FirstScreen widget.
+      //   // 最初のページ"/"はMyHomePageですよ
+      //   '/': (context) => MyHomePage(),
+      //   // When navigating to the "/second" route, build the SecondScreen widget.
+      //   //2番目のページはNextPageですよ
+      //   '/second': (context) => NextPage(),
+      // },
     );
   }
 }
@@ -57,6 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  //初期値を次へにして画面が戻ってきたときに引数を格納する
+  String text = '次へ';
+
   @override
   Widget build(BuildContext context) {
 
@@ -71,18 +75,20 @@ class _MyHomePageState extends State<MyHomePage> {
       //option + EnterでCenterを付けたり、削除できる
       body: Center(
         child: RaisedButton(
-        child: Text('次へ'),
-          onPressed: (){
+        child: Text(text),
+          onPressed: () async{
             //クリック時の処理をかく
             //画面遷移1 公式document参照
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => NextPage()),
-            // );
-            //画面遷移2
-            Navigator.pushNamed(context, '/second');
-
-
+            //final resultを追記して、戻るボタンの引数を格納
+            final result = await Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NextPage("おしんこ！")),
+            );
+            //戻るボタンの引数がresultに格納されるのでそれをtextに格納
+            text = result;
+            print(result);
+            // //画面遷移2
+            // Navigator.pushNamed(context, '/second');
           },
         ),
       ),
