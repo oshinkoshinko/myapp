@@ -15,7 +15,16 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      //最初のページは/ですよ
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        // 最初のページ"/"はMyHomePageですよ
+        '/': (context) => MyHomePage(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        //2番目のページはNextPageですよ
+        '/second': (context) => NextPage(),
+      },
     );
   }
 }
@@ -65,11 +74,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Text('次へ'),
           onPressed: (){
             //クリック時の処理をかく
-            //画面遷移 公式document参照
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => NextPage()),
-            );
+            //画面遷移1 公式document参照
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => NextPage()),
+            // );
+            //画面遷移2
+            Navigator.pushNamed(context, '/second');
 
 
           },
