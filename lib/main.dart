@@ -59,27 +59,30 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       //option + EnterでCenterを付けたり、削除できる
-      body: Container(
-        // height: 500,
-        // width: 500,
-        color: Colors.red,
-        child: Center(
-          child: Column(
+      body: Center(
+        child: RaisedButton(
+        child: Text('次へ'),
+          onPressed: (){
+            //クリック時の処理をかく
+            //画面遷移
 
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'ボタンを押してみよう！',
-              ),
-              Text('簡単！！'),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-            ],
-          ),
+          },
         ),
       ),
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: <Widget>[
+      //       Text(
+      //         'ボタンを押してみよう！',
+      //       ),
+      //       Text('簡単！！'),
+      //       Text(
+      //         '$_counter',
+      //         style: Theme.of(context).textTheme.headline4,
+      //       ),
+      //     ],
+      //   ),
+      // ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
