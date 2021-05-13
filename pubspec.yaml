@@ -38,12 +38,11 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
-
+  assets:
+    - images/45623C24-0755-4330-84E8-7C0D6066D314.jpg
+    - images/prof.JPG
+  #   フォルダの画像を使う場合はここに場所を記載する
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

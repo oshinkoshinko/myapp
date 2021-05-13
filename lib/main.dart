@@ -74,22 +74,42 @@ class _MyHomePageState extends State<MyHomePage> {
 
       //option + EnterでCenterを付けたり、削除できる
       body: Center(
-        child: RaisedButton(
-        child: Text(text),
-          onPressed: () async{
-            //クリック時の処理をかく
-            //画面遷移1 公式document参照
-            //final resultを追記して、戻るボタンの引数を格納
-            final result = await Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => NextPage("おしんこ！")),
-            );
-            //戻るボタンの引数がresultに格納されるのでそれをtextに格納
-            text = result;
-            print(result);
-            // //画面遷移2
-            // Navigator.pushNamed(context, '/second');
-          },
+        child: Column(
+          //中央寄せ
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+
+            //アイコン
+            Icon(
+              Icons.favorite,
+              size: 50,
+              color: Colors.red,
+            ),
+            //フォルダから画像の挿入 pubspec.yamlに記載
+            Image.asset('images/prof.JPG'),
+
+            //ネットから画像の挿入
+            // const Image(
+            //   image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+            // ),
+            RaisedButton(
+            child: Text(text),
+              onPressed: () async{
+                //クリック時の処理をかく
+                //画面遷移1 公式document参照
+                //final resultを追記して、戻るボタンの引数を格納
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NextPage("おしんこ！")),
+                );
+                //戻るボタンの引数がresultに格納されるのでそれをtextに格納
+                text = result;
+                print(result);
+                // //画面遷移2
+                // Navigator.pushNamed(context, '/second');
+              },
+            ),
+          ],
         ),
       ),
       //   child: Column(
