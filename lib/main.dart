@@ -61,6 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
   //初期値を次へにして画面が戻ってきたときに引数を格納する
   String text = '次へ';
 
+  final myFocusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
 
@@ -78,6 +80,27 @@ class _MyHomePageState extends State<MyHomePage> {
           //中央寄せ
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Column(
+              children: [
+                TextField(
+                  autofocus: true,
+                  decoration: InputDecoration(
+                    hintText: 'ここに文字を入力なり',
+                  ),
+                ),
+                TextField(
+                  focusNode: myFocusNode,
+                ),
+                RaisedButton(
+                  child: Text("focus"),
+                  onPressed: () {
+                    //フォーカス処理
+                    myFocusNode.requestFocus();
+                  },
+                )
+              ],
+            ),
+
             Text("おしんこ！",
             style: TextStyle(
               fontSize: 40,
