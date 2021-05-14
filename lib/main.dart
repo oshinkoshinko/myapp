@@ -78,7 +78,15 @@ class _MyHomePageState extends State<MyHomePage> {
           //中央寄せ
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
+            Text("おしんこ！",
+            style: TextStyle(
+              fontSize: 40,
+              color: Colors.green,
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.italic,
+              decoration: TextDecoration.underline,
+            ),
+            ),
             //アイコン
             Icon(
               Icons.favorite,
