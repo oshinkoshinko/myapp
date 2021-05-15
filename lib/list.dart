@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/long_lists.dart';
+import 'package:flutter_app/next_page.dart';
 
 class ListPage extends StatelessWidget {
   @override
@@ -13,6 +15,7 @@ class ListPage extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.map),
             title: Text('Map'),
+            trailing: Icon(Icons.arrow_forward_ios),
           ),
           ListTile(
             leading: Icon(Icons.photo_album),
@@ -21,6 +24,18 @@ class ListPage extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.phone),
             title: Text('Phone'),
+          ),
+          ListTile(
+            leading: Text('これ'),
+            title: Text('ロングリスト'),
+            trailing: Icon(Icons.favorite),
+            onTap: () {
+              //画面遷移
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LongListsPage()),
+              );
+            },
           ),
         ],
       ),
