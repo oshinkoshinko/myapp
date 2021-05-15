@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/list.dart';
 
 class NextPage extends StatelessWidget {
 
@@ -18,12 +19,14 @@ class NextPage extends StatelessWidget {
 
       //option + EnterでCenterを付けたり、削除できる
       body: Container(
-        color: Colors.red,
+        color: Colors.blue,
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             //前ページのtextが渡されている
             Text(name),
+
             Center(
 
               child: RaisedButton(
@@ -37,6 +40,15 @@ class NextPage extends StatelessWidget {
                 },
               ),
             ),
+            Center(
+              child: ElevatedButton(
+                child: Text('リストへ'),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ListPage()),
+                  );
+                },
+              ),
+            )
           ],
         ),
       ),
