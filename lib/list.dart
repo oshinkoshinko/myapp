@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/grid_list.dart';
 import 'package:flutter_app/long_lists.dart';
 import 'package:flutter_app/next_page.dart';
 
@@ -34,6 +35,17 @@ class ListPage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => LongListsPage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarms_outlined),
+            title: Text('グリッドリスト'),
+            trailing: Icon(Icons.zoom_out_rounded),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => GridListPage()),
               );
             },
           ),
