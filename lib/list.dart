@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/grid_list.dart';
 import 'package:flutter_app/long_lists.dart';
 import 'package:flutter_app/next_page.dart';
+import 'package:flutter_app/youtube.dart';
 
 class ListPage extends StatelessWidget {
   @override
@@ -19,8 +20,15 @@ class ListPage extends StatelessWidget {
             trailing: Icon(Icons.arrow_forward_ios),
           ),
           ListTile(
-            leading: Icon(Icons.photo_album),
-            title: Text('Album'),
+            leading: Icon(Icons.movie),
+            title: Text('Youtube'),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => YoutubePage()),
+              );
+            },
           ),
           ListTile(
             leading: Icon(Icons.phone),
