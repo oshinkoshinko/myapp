@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/grid_list.dart';
 import 'package:flutter_app/long_lists.dart';
 import 'package:flutter_app/next_page.dart';
+import 'package:flutter_app/todo.dart';
 import 'package:flutter_app/youtube.dart';
 
 class ListPage extends StatelessWidget {
@@ -31,8 +32,15 @@ class ListPage extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.phone),
-            title: Text('Phone'),
+            leading: Icon(Icons.list),
+            title: Text('Todo'),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TodoPage()),
+              );
+            },
           ),
           ListTile(
             leading: Text('これ'),
